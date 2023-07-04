@@ -6,6 +6,7 @@
     format("truetype");
 }
 
+/* css custom props references from Kevin Powell at https://youtu.be/KqFAs5d3Yl8 */
 :root {
   --clr-primary-hsl-400: 252, 100%, 67%;
   --clr-primary-hsl-500: 256, 72%, 46%;
@@ -88,7 +89,6 @@ ul {
   max-width: 40rem;
   gap: 1rem;
   box-shadow: 0.57rem 0.75rem 1.5rem hsla(var(--clr-neutral-hsl-700), 0.1);
-  /* margin-inline: auto; */
 }
 
 .card-title {
