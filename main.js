@@ -1,5 +1,8 @@
 const getDataJSON = async (path, callback) => {
-  return callback(await fetch(path).then((res) => res.json()))
+  const res = await fetch(path)
+  const data = await res.json()
+
+  return callback(data)
 }
 
 const summaryListsContainer = document.querySelector(".summary-lists")
@@ -14,9 +17,11 @@ const renderLists = async () => {
   await getDataJSON("./data.json", (data) => {
     data.forEach(({ category, score, icon }, i) => {
       const markup = `
-        <li style="--clr-accent: ${dataAccentColors[i]};" class="summary-lists-item">
+        <li style="--clr-accent: ${
+          dataAccentColors[i]
+        };" class="summary-lists-item">
           <div class="item-title">
-            <img class="item-icon" src="${icon}" alt="${category} icon" />
+            <img class="item-icon" src="${icon}" alt="${category.toLowerCase()} icon" />
 
             ${category}
           </div>
